@@ -27,7 +27,7 @@ Tato funkce implementuje vlastní způsob nalezení minimální hodnoty v seznam
 
 
 ### `cheapest_product()`
-Funkce používá `array_min()` k nalezeni nejnižší ceny mezi produkty. Poté projde seznam `products` a všechny produkty s touto cenou vypíše. Pokud existuje více produktů se stejnou nejnižší cenou, zobrazi se všechny.
+Funkce používá `array_min()` k nalezení nejnižší ceny mezi produkty. Poté projde seznam `products` a všechny produkty s touto cenou vypíše. Pokud existuje více produktů se stejnou nejnižší cenou, zobrazí se všechny.
 
 
 ### `array_max(items)`
