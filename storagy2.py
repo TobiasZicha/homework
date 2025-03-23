@@ -88,6 +88,23 @@ def most_expensive_product():
         print(f"{product['name']} - {product['price']}$")
 
 
+def average_price():
+    if not products:
+        print("No products available.")
+        return
+
+    average = 0
+    count = 0
+
+    for product in products:
+        average += product["price"]
+        count += 1
+
+    avg_price = average / count
+
+    print(f"Average product price: {avg_price:.2f}$")
+
+
 def menu():
     print("Vítej ve skladu")
     print("###############\n")
@@ -96,8 +113,8 @@ def menu():
     print("3. Vyhledání produktu")
     print("4. Celková cena")
     print("5. Nejdražší produkt")
-    print("6. Nejlevnější produkt\n")
-
+    print("6. Nejlevně produkt")
+    print("7. Průměrná cena\n")
 
     choice = int(input("Volba: "))
 
@@ -135,6 +152,12 @@ def menu():
         print("Nejlevnější produkt:")
         cheapest_product()
         print("")
+        menu()
+
+    elif choice == 7:
+        print("průměrná cena")
+        average_price()
+        print("\n")
         menu()
 
     else:
