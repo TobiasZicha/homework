@@ -1,6 +1,6 @@
 # Správa skladových produktů
 
-Tento projekt je jednoduchá konzolová aplikace napsaná v jazyce Python, která umožňuje správu produktů na skladě. Umožňuje přidávat, upravovat, hledat produkty, zjistit jejich celkovou cenu, nejdražší a nejlevnější produkt, průměrnou cenu a ukončit program.
+Tento projekt je jednoduchá konzolová aplikace napsaná v jazyce Python, která umožňuje správu produktů na skladě. Umožňuje přidávat, upravovat, hledat produkty, zjistit jejich celkovou cenu, nejdražší a nejlevnější produkt, průměrnou cenu, poslední přidaný produkt a ukončit program.
 
 ## Funkce aplikace
 
@@ -14,9 +14,10 @@ Aplikace obsahuje několik hlavních funkcí:
 6. **Nejlevnější produkt** – Najde a zobrazí nejlevnější produkt.
 7. **Průměrná cena** – Spočítá průměrnou cenu produktů.
 8. **Úprava produktu** – Umožňuje upravit produkt.
-9. **Ukončení programu** – Umožňuje bezpečně ukončit program.
+9. **Zobrazení posledního přidaného produktu** - Zobrazí produkt, který byl posledně přidán.
+10. **Ukončení programu** – Umožňuje bezpečně ukončit program.
 
-## Popis funkcí v kódu
+## Popis funkcí v kódu - Velmi podrobně rozebraný
 
 ### `add_product()`
 Funkce přidá nový produkt do seznamu `products`. Uživatel zadá nazev a cenu produktu. Cena je validována pomocí cyklu `while`, který kontroluje, zda uživatel zadal platné číslo. Pokud zadá neplatný vstup, zobrazí se chybová zpráva a proces se opakuje, dokud není zadána správná hodnota.
@@ -26,7 +27,7 @@ Tato funkce implementuje vlastní způsob nalezení minimální hodnoty v seznam
 
 
 ### `cheapest_product()`
-Funkce používá `array_min()` k nalezení nejnižší ceny mezi produkty. Poté projde seznam `products` a všechny produkty s touto cenou vypíše. Pokud existuje více produktů se stejnou nejnižší cenou, zobrazí se všechny.
+Funkce používá `array_min()` k nalezeni nejnižší ceny mezi produkty. Poté projde seznam `products` a všechny produkty s touto cenou vypíše. Pokud existuje více produktů se stejnou nejnižší cenou, zobrazi se všechny.
 
 
 ### `array_max(items)`
@@ -46,8 +47,10 @@ Funkce umožňuje uživateli upravit existující produkt v seznamu. Nejprve vyp
 Funkce zkontroluje, zda uživatel zadal číslo `9`. Pokud ano, zobrazí zprávu o ukončení programu a ukončí běh aplikace pomocí `quit()`. Jinak umožní pokračovat v programu.
 
 ### `menu()`
-Tahle Funkce zajišťuje hlavní ovládání programu. Zobrazí uživateli menu s číslovanými možnostmi a čeká na vstup. Pokud uživatel zadá neplatnou volbu, zobrazí se chybová zpráva a menu se zobrazí znovu. Podle vybrané možnosti volá odpovídající funkci. Program běží v nekonečné smyčce `while True`, dokud uživatel nezvolí ukončení.
+Tahle funkce zajišťuje hlavní ovládání programu. Zobrazí uživateli menu s číslovanými možnostmi a čeká na vstup. Pokud uživatel zadá neplatnou volbu, zobrazí se chybová zpráva a menu se zobrazí znovu. Podle vybrané možnosti volá odpovídající funkci. Program běží v nekonečné smyčce `while True`, dokud uživatel nezvolí ukončení.
 
+### `latest_added_product`
+Tahle funkce zjišťuje a zobrazuje poslední přidaný produkt ve tvém seznamu products. Pokud je seznam prázdný, funkce vypíše zprávu „Žádné produkty nejsou v skladu“ a ukončí svou činnost. Pokud seznam produktů není prázdný, funkce získá poslední přidaný produkt tím, že se podívá na poslední položku v seznamu products. Nakonec funkce vytiskne informace o posledním přidaném produktu, tedy jeho název a cenu.
 
 ## Co mi pomohlo při dělání projektu
 

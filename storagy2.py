@@ -141,6 +141,13 @@ def end():
         print("Ukončuji program...")
         quit()
 
+def latest_added_product():
+    if not products:
+        print("Žádné produkty nejsou v skladu.")
+        return
+
+    latest_product = products[-1]
+    print(f"Nejnovější produkt v nabídce je: {latest_product['name']} - {latest_product['price']}$")
 
 
 def menu():
@@ -155,7 +162,8 @@ def menu():
         print("6. Nejlevnější produkt")
         print("7. Průměrná cena")
         print("8. Úprava produktu")
-        print("9. Ukončení programu")
+        print("9. Poslední přidaný produkt")
+        print("10. Ukončení programu")
 
         choice = input("Volba: ")
 
@@ -198,6 +206,10 @@ def menu():
             edit_product()
 
         elif choice == 9:
+            print("\nPoslední přidaný produkt")
+            latest_added_product()
+
+        elif choice == 10:
             print("\nUkončuji program...")
             break
         else:
