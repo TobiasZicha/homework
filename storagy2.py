@@ -1,8 +1,8 @@
 products = [
     {"name": "Audi", "price": 50},
     {"name": "BMW", "price": 30},
-    {"name": "Audi A8", "price": 20},
-    {"name": "Audi A7", "price": 20}
+    {"name": "Audi A7", "price": 20},
+    {"name": "Audi A8", "price": 20}
 ]
 
 
@@ -25,6 +25,15 @@ def search_product():
             print(f"{item['name']} - {item['price']}$")
     else:
         print("Žádný produkt nenalezen.")
+
+
+def total_price():
+    total = 0
+
+    for product in products:
+        total += product["price"]
+
+    print(f"Celková cena všech produktů je: {total}$")
 
 
 def add_product():
@@ -51,7 +60,8 @@ def menu():
     print("###############\n")
     print("1. Výpis položek")
     print("2. Přidání položky")
-    print("3. Vyhledání produktu\n")
+    print("3. Vyhledání produktu")
+    print("4. Celková cena\n")
 
 
     choice = int(input("Volba: "))
@@ -59,19 +69,21 @@ def menu():
     if choice == 1:
         print("Položky na skladě jsou:")
         print_products()
-        print("")
         menu()
 
     elif choice == 2:
         print("Přidání poožky:")
         add_product()
-        print("")
         menu()
 
     elif choice == 3:
         print("vyhledání produktu:")
         search_product()
-        print("")
+        menu()
+
+    elif choice == 4:
+        print("suma produktu:")
+        total_price()
         menu()
 
     else:
