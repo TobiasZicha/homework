@@ -104,6 +104,38 @@ def average_price():
 
     print(f"Average product price: {avg_price:.2f}$")
 
+def edit_product():
+    print("\nSeznam produktů k úpravě:")
+    for i, product in enumerate(products):
+        print(f"{i + 1}. {product['name']} - {product['price']}$")
+
+    try:
+        index = int(input("\nZadejte číslo produktu, který chcete upravit: ")) - 1
+        if index < 0 or index >= len(products):
+            print("Neplatná volba. Zkuste to znovu.")
+            return
+
+        new_name = input("Zadejte nový název produktu: ")
+        if not new_name:
+            print("Název nesmí být prázdný.")
+            return
+
+        while True:
+            try:
+                new_price = float(input("Zadejte novou cenu produktu: "))
+                new_price = int(new_price) if new_price.is_integer() else new_price
+                break
+            except ValueError:
+                print("Neplatné číslo. Zadejte prosím platnou cenu.")
+
+        products[index]["name"] = new_name
+        products[index]["price"] = new_price
+        print(f"\n Produkt byl úspěšně upraven: {new_name} - {new_price}$")
+
+    except ValueError:
+        print("Neplatná volba. Musíte zadat číslo.")
+
+
 
 def menu():
     print("Vítej ve skladu")
@@ -114,7 +146,8 @@ def menu():
     print("4. Celková cena")
     print("5. Nejdražší produkt")
     print("6. Nejlevně produkt")
-    print("7. Průměrná cena\n")
+    print("7. Průměrná cena")
+    print("8. Úprava produktu\n")
 
     choice = int(input("Volba: "))
 
@@ -157,6 +190,12 @@ def menu():
     elif choice == 7:
         print("průměrná cena")
         average_price()
+        print("\n")
+        menu()
+
+    elif choice == 8:
+        print("změna ceny a názvu produktu")
+        edit_product()
         print("\n")
         menu()
 
